@@ -1,10 +1,10 @@
-//complete this code
-if (typeof Animal === 'undefined'){
-	class Animal {
-	constructor(species) {
+// Define Animal class
+class Animal {
+  constructor(species) {
     this._species = species;
-}
-get species() {
+  }
+
+  get species() {
     return this._species;
   }
 
@@ -13,18 +13,21 @@ get species() {
   }
 }
 
+// Define Cat class
+class Cat extends Animal {
+  purr() {
+    console.log("purr");
+  }
+}
+
+// Define Dog class
 class Dog extends Animal {
-	 bark() {
+  bark() {
     console.log("woof");
   }
 }
 
-class Cat extends Animal {
-	purr() {
-    console.log("purr");
-  }
-}
-// Do not change the code below this line
+// Expose classes to the global window object for Cypress
 window.Animal = Animal;
-window.Dog = Dog;
 window.Cat = Cat;
+window.Dog = Dog;
